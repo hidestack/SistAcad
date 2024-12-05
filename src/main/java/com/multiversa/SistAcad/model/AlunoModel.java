@@ -6,7 +6,9 @@ import lombok.Data;
 @Entity
 @Table(name = "aluno-model")
 @Data
-public class AlunoModel {
+public class
+
+AlunoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

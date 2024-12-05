@@ -14,10 +14,11 @@ public class AlunoService {
     private AlunoRepository alunoRepository;
 
     // Metodo para salvar ou atualizar o aluno
-    public AlunoModel save(AlunoModel aluno) {
+    public AlunoModel save(Long id, AlunoModel aluno) {
         return alunoRepository.save(aluno);
     }
-    // Metodo para buscar um professor por ID
+
+    // Metodo para buscar um aluno por ID
     public Optional<AlunoModel> findById(Long id) {
         return alunoRepository.findById(id);
     }
@@ -27,7 +28,7 @@ public class AlunoService {
         return alunoRepository.findAll();
     }
 
-    // Metodo para excluir um professor por ID
+    // Metodo para excluir um aluno por ID
     public void deleteById(Long id) {
         alunoRepository.deleteById(id);
     }
