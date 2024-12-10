@@ -14,7 +14,11 @@ public class AlunoService {
     private AlunoRepository alunoRepository;
 
     // Metodo para salvar ou atualizar o aluno
-    public AlunoModel save(Long id, AlunoModel aluno) {
+    public AlunoModel save(AlunoModel aluno) {
+        return alunoRepository.save(aluno);
+    }
+
+    public AlunoModel update(AlunoModel aluno, Long id) {
         return alunoRepository.save(aluno);
     }
 

@@ -20,8 +20,8 @@ public class AlunoController {
 
 
 @PostMapping("/create")
-    public ResponseEntity<AlunoModel> create(@RequestBody Long id, AlunoModel aluno) {
-        return ResponseEntity.ok(alunoService.save(id, aluno));
+    public ResponseEntity<AlunoModel> create(@RequestBody AlunoModel aluno) {
+        return ResponseEntity.ok(alunoService.save(aluno));
 }
 
 @GetMapping
@@ -36,7 +36,7 @@ public class AlunoController {
 
 @PutMapping("/update/{id}")
     public ResponseEntity<AlunoModel> update(@PathVariable Long id, @RequestBody AlunoModel aluno) {
-        return ResponseEntity.ok(alunoService.save(id, aluno));
+        return ResponseEntity.ok(alunoService.update(aluno, id));
 }
 
 @DeleteMapping("/delete/{id}")

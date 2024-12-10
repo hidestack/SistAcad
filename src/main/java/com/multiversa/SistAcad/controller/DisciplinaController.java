@@ -12,20 +12,16 @@ import java.util.Optional;
 @RequestMapping("/disciplinas")
 public class DisciplinaController {
 
-    private DisciplinaService disciplinaService;
+    private final DisciplinaService disciplinaService;
 
-    public void disciplinaController(DisciplinaService alunoService) {
-        this.disciplinaService = alunoService;
-    }
-
-    public DisciplinaController(DisciplinaService disciplinaService) {
+    public DisciplinaController (DisciplinaService disciplinaService) {
         this.disciplinaService = disciplinaService;
     }
 
 
     @PostMapping("/create")
-    public ResponseEntity<DisciplinaModel> create(@RequestBody Long id, DisciplinaModel aluno) {
-        return ResponseEntity.ok(disciplinaService.save(id, aluno));
+    public ResponseEntity<DisciplinaModel> create(@RequestBody DisciplinaModel disciplina) {
+        return ResponseEntity.ok(disciplinaService.save(disciplina));
     }
 
     @GetMapping
@@ -39,8 +35,8 @@ public class DisciplinaController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<DisciplinaModel> update(@PathVariable Long id, @RequestBody DisciplinaModel aluno) {
-        return ResponseEntity.ok(disciplinaService.save(id, aluno));
+    public ResponseEntity<DisciplinaModel> update(@PathVariable Long id, @RequestBody DisciplinaModel disciplina) {
+        return ResponseEntity.ok(disciplinaService.update(disciplina, id));
     }
 
     @DeleteMapping("/delete/{id}")
@@ -48,4 +44,5 @@ public class DisciplinaController {
         disciplinaService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
 }
