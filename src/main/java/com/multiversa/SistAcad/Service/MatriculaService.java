@@ -1,6 +1,5 @@
 package com.multiversa.SistAcad.Service;
 import com.multiversa.SistAcad.Repository.MatriculaRepository;
-import com.multiversa.SistAcad.model.AlunoModel;
 import com.multiversa.SistAcad.model.MatriculaModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,7 @@ public class MatriculaService {
     private MatriculaRepository matriculaRepository;
 
     // Metodo para salvar ou atualizar o aluno
-    public MatriculaModel save(Long id, MatriculaModel Matricula) {
+    public MatriculaModel save(MatriculaModel Matricula) {
         return matriculaRepository.save(Matricula);
     }
 

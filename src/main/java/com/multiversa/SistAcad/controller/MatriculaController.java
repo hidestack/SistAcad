@@ -25,7 +25,7 @@ public class MatriculaController {
 
     @PostMapping("/create")
     public ResponseEntity<MatriculaModel> create(@RequestBody Long id, MatriculaModel matricula) {
-        return ResponseEntity.ok(matriculaService.save(id, matricula));
+        return ResponseEntity.ok(matriculaService.save(matricula));
     }
 
     @GetMapping
@@ -40,7 +40,7 @@ public class MatriculaController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<MatriculaModel> update(@PathVariable Long id, @RequestBody MatriculaModel matricula) {
-        return ResponseEntity.ok(matriculaService.save(id, matricula));
+        return ResponseEntity.ok(matriculaService.save(matricula));
     }
 
     @DeleteMapping("/delete/{id}")
