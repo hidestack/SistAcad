@@ -17,4 +17,7 @@ AlunoModel {
     @Column(name = "nomeAluno", nullable = false)
     private String nomeAluno;
 
+    @Column(name = "idadeAluno", nullable = false)
+    private int idadeAluno;
+
 }
