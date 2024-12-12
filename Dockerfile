@@ -1,27 +1,20 @@
-# Etapa 1: Construção da aplicação com Maven
-FROM maven:3.9.0-eclipse-temurin-21 AS build
+FROM maven:3.9.5-eclipse-temurin-17 AS build
 
-# Definir o diretório de trabalho no contêiner
+# Set working directory
 WORKDIR /app
+COPY . /app
 
-# Copiar o arquivo pom.xml e o diretório src para o contêiner
-COPY pom.xml .
-COPY src ./src
-
-# Construir o JAR da aplicação
+# Build the application (assuming application class is in src/main/java)
 RUN mvn clean package -DskipTests
 
-# Etapa 2: Execução da aplicação com OpenJDK
-FROM eclipse-temurin:21-jdk AS runtime
+FROM eclipse-temurin:17-jdk-alpine
 
-# Definir o diretório de trabalho para a aplicação
+# Set working directory
 WORKDIR /app
-
-# Copiar o JAR construído da etapa anterior
 COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
 
-# Expôr a porta em que o Spring Boot vai rodar
-EXPOSE 8080
+# Expose port for the application
+EXPOSE 8081
 
-# Comando para rodar a aplicação
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Start the application using the JAR file
+CMD [ "java", "-jar", "app.jar" ]
