@@ -161,3 +161,4 @@ A aplicação Spring Boot se conecta ao banco de dados PostgreSQL através das s
 ## Clone o repositório para a sua máquina local
 
 ```bash
+https://github.com/hidestack/SistAcad.git
